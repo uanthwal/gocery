@@ -16,9 +16,63 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="13dp"
             android:gravity="center_vertical"
-            android:text="Photo Vault"
+            android:text="Walmart"
             android:textColor="@color/white"
             android:textSize="16sp" />
+
+
+
+        <ImageView
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="35dp"
+            android:layout_centerInParent="true"
+            android:layout_height="35dp"
+            android:src="@mipmap/cart_icon"
+            ></ImageView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/search_layout"
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_mob_num"
+            android:layout_centerHorizontal="true"
+
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/ip_txt_hint_clr"
+            android:theme="@style/TextInputLayoutStyle"
+            app:boxBackgroundColor="@color/colorPrimary"
+            app:boxStrokeColor="@color/white"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawablePadding="8px"
+                android:gravity="top"
+                android:hint="Email"
+                android:textColor="@color/white"
+                android:textColorHint="#D3D8D4" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <ImageButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/mic" />
 
     </RelativeLayout>
 
@@ -26,30 +80,15 @@
         android:id="@+id/albumListRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/top_layout"
+        android:layout_below="@+id/search_layout"
         android:layout_centerHorizontal="true" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+    <Button
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:tint="@android:color/white"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
-    <TextView
-        android:id="@+id/noAlbumLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:textAlignment="center"
-        android:text="@string/text_no_albums" />
+        android:text="CHECKOUT"
+        android:backgroundTint="@color/colorAccent"></Button>
 
 </RelativeLayout>

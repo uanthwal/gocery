@@ -1,4 +1,5 @@
 package com.mobilecomputing.one_sec.activities;
+
 import info.androidhive.sqlite.view.NotesActivity;
 
 import android.content.Intent;
@@ -30,11 +31,10 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     GridLayout gridLayoutHomeGrid;
     int backButtonPressCount = 0;
-
 
 
     @Override
@@ -43,14 +43,11 @@ public class MainActivity extends AppCompatActivity
         initAnimation();
 
 
-
-
         setContentView(R.layout.activity_main);
 
 
-
         Toolbar toolbar = findViewById(R.id.toolbar);
-      toolbar.dismissPopupMenus();
+        toolbar.dismissPopupMenus();
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -69,9 +66,6 @@ public class MainActivity extends AppCompatActivity
         gridLayoutHomeGrid = findViewById(R.id.home_grid);
         onClickGridItemListener(gridLayoutHomeGrid);
     }
-
-
-
 
 
     @Override
@@ -171,16 +165,15 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     if (finalI == 0) {
-                        Intent intent = new Intent(MainActivity.this, ViewCredentials.class);
+                        Intent intent = new Intent(MainActivity.this, PhotoVaultActivity.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     } else if (finalI == 1) {
-                        Intent intent = new Intent(MainActivity.this, CreditCardActivity.class);
+                        Intent intent = new Intent(MainActivity.this, PhotoVaultActivity.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     } else if (finalI == 2) {
-                        SpUtil.getInstance().getBoolean(AppConstants.LOCK_FROM_LOCK_MAIN_ACITVITY, true);
-                        Intent intent = new Intent(MainActivity.this, SplashActivity.class);
+                        Intent intent = new Intent(MainActivity.this, PhotoVaultActivity.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     } else if (finalI == 3) {
@@ -188,7 +181,7 @@ public class MainActivity extends AppCompatActivity
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     } else if (finalI == 4) {
-                        Intent intent = new Intent(MainActivity.this, NotesActivity.class);
+                        Intent intent = new Intent(MainActivity.this, PhotoVaultActivity.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     }

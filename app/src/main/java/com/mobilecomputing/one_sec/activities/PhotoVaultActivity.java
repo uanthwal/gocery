@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,7 +23,13 @@ import com.mobilecomputing.one_sec.adapters.AlbumListAdapter;
 import com.mobilecomputing.one_sec.base.AppConstants;
 import com.mobilecomputing.one_sec.utils.SpUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -31,13 +38,12 @@ public class PhotoVaultActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     ArrayList<HashMap<String, String>> albumLst = new ArrayList<>();
-    TextView textViewNoAlbums;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_vault);
-        checkForFirstLaunch();
+//        checkForFirstLaunch();
         recyclerView = findViewById(R.id.albumListRecycler);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -45,52 +51,49 @@ public class PhotoVaultActivity extends AppCompatActivity {
         albumLst = getAlbumList();
         mAdapter = new AlbumListAdapter(getApplicationContext(), albumLst);
         recyclerView.setAdapter(mAdapter);
-        textViewNoAlbums = findViewById(R.id.noAlbumLbl);
         checkForAlbumCount();
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(PhotoVaultActivity.this);
-                builder.setTitle("Enter Album Name");
-                final EditText input = new EditText(PhotoVaultActivity.this);
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-                builder.setView(input);
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String m_Text = input.getText().toString();
-                        if (null != albumLst && albumLst.contains(m_Text)) {
-                            Toast.makeText(getApplicationContext(), AppConstants.ALBUM_EXISTS_ERR, Toast.LENGTH_SHORT).show();
-                        } else {
-                            File folder = getFilesDir();
-                            File f = new File(folder + "/" + AppConstants.MEDIA_FOLDER, m_Text);
-                            f.mkdir();
-                            HashMap<String, String> newItem = new HashMap<>();
-                            newItem.put("albumName", m_Text);
-                            newItem.put("imageCount", "0");
-                            albumLst.add(albumLst.size(), newItem);
-                            mAdapter.notifyDataSetChanged();
-                        }
-                        checkForAlbumCount();
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                builder.show();
-            }
-        });
+
     }
 
     private ArrayList<HashMap<String, String>> getAlbumList() {
+
+        try {
+            JSONObject obj = new JSONObject(loadJSONFromAsset());
+            JSONArray m_jArry = obj.getJSONArray("products");
+            ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
+            HashMap<String, String> m_li;
+
+            for (int i = 0; i < m_jArry.length(); i++) {
+                JSONObject jo_inside = m_jArry.getJSONObject(i);
+
+                String i_name = jo_inside.getString("name");
+                String i_price = jo_inside.getString("price");
+                String i_img = jo_inside.getString("img");
+                String i_cat = jo_inside.getString("category");
+                String id = jo_inside.getString("id");
+
+
+                //Add your values in your `ArrayList` as below:
+                m_li = new HashMap<String, String>();
+                m_li.put("name", i_name);
+                m_li.put("price", i_price);
+                m_li.put("id", id);
+                m_li.put("img", i_img);
+                m_li.put("cat", i_cat);
+
+                formList.add(m_li);
+            }
+            return formList;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+/*
         ArrayList<HashMap<String, ArrayList<HashMap<String, String>>>> dataList = new ArrayList<>();
         ArrayList<HashMap<String, String>> productList = new ArrayList<>();
-        productList.add("")
-        dataList.add();
+
 
         File folder = getFilesDir();
         File[] files = folder.listFiles();
@@ -111,7 +114,8 @@ public class PhotoVaultActivity extends AppCompatActivity {
                 break;
             }
         }
-        return mediaFolderList;
+        return mediaFolderList;*/
+        return null;
     }
 
     private void checkForFirstLaunch() {
@@ -125,6 +129,23 @@ public class PhotoVaultActivity extends AppCompatActivity {
             }
             SpUtil.getInstance().putBoolean("photoVaultFirstLaunch", false);
         }
+    }
+
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getApplicationContext().getAssets().open("products.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     @Override
@@ -145,11 +166,7 @@ public class PhotoVaultActivity extends AppCompatActivity {
     }
 
     private void checkForAlbumCount() {
-        if (null != albumLst && albumLst.size() > 0) {
-            textViewNoAlbums.setVisibility(View.INVISIBLE);
-        } else {
-            textViewNoAlbums.setVisibility(View.VISIBLE);
-        }
+
     }
 
     @Override

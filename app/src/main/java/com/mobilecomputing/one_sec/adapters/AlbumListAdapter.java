@@ -31,9 +31,9 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.MyVi
 
         public MyViewHolder(View v) {
             super(v);
-            albumName = v.findViewById(R.id.albumNameTxtVw);
-            imgCount = v.findViewById(R.id.imageCountTxtVw);
-            imageView = v.findViewById(R.id.imageView3);
+            albumName = v.findViewById(R.id.p_title_1);
+            imgCount = v.findViewById(R.id.i_price);
+            imageView = v.findViewById(R.id.i_p_1);
         }
     }
 
@@ -61,11 +61,28 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.MyVi
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         if (null != mDataset && mDataset.size() > 0) {
             HashMap<String, String> currentItem = mDataset.get(position);
-            holder.albumName.setText(currentItem.get("albumName"));
-            holder.imgCount.setText("Images (" + currentItem.get("imageCount") + ")");
+            holder.albumName.setText(currentItem.get("name"));
+            holder.imgCount.setText(currentItem.get("price"));
+            int resId = 0;
+            if (currentItem.get("id").equals("1")) {
+                resId = R.mipmap.silk_almond;
+            } else  if (currentItem.get("id").equals("2")) {
+                resId = R.mipmap.chc_milk;
+            }
+            else  if (currentItem.get("id").equals("3")) {
+                resId = R.mipmap.bonless_ch;
+            }
+            else  if (currentItem.get("id").equals("4")) {
+                resId = R.mipmap.ch_thighs;
+            }
+            else  if (currentItem.get("id").equals("5")) {
+                resId = R.mipmap.oreo;
+            }
+
+            holder.imageView.setImageResource(resId);
         }
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+       /* holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick:  albumName" + position);
@@ -75,7 +92,7 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.MyVi
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
-        });
+        });*/
     }
 
     // Return the size of your dataset (invoked by the layout manager)
