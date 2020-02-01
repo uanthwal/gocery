@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="5dp">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/album_title"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            android:gravity="center_vertical"
+            android:text="Contact Us"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/edit_txt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_layout"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/rounded_edittext_states"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:padding="8dp"
+        android:text="contact@one-sec.com"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/edit_txt_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_txt_email"
+        android:layout_margin="15dp"
+        android:background="@drawable/rounded_edittext_states"
+        android:ems="10"
+        android:hint="Subject"
+        android:inputType="textPersonName"
+        android:padding="8dp"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/edit_txt_msg"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/edit_txt_subject"
+        android:layout_margin="15dp"
+        android:background="@drawable/rounded_edittext_states"
+        android:ems="20"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:padding="8dp"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/submit_contact_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_below="@+id/edit_txt_msg"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:text="Submit"
+        android:background="@drawable/rounded_edittext_focused"
+        android:textColor="@color/white" />
+</RelativeLayout>

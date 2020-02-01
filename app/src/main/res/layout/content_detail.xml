@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".activities.Detail">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="676dp"
+        android:orientation="vertical"
+        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".33"
+            android:layout_below="@id/toolbar">
+
+            <RelativeLayout
+                android:id="@+id/card_preview_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/card_gradient" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/hide_cvc"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_weight=".47"
+                        android:background="@drawable/slash_slash_gradiet" />
+
+                    <TextView
+                        android:id="@+id/card_preview_cvc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_toRightOf="@+id/hide_cvc"
+                        android:layout_weight=".1"
+                        android:hint="CCV"
+                        android:text="CCV"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/card_preview_front"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/card_gradient" />
+
+                <TextView
+                    android:id="@+id/card_preview_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="35dp"
+                    android:hint="Name Of Card"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_color"
+                    android:textColorHint="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/card_preview_expiry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="35dp"
+                    android:hint="Expiry Date"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_color"
+                    android:textColorHint="@color/text_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/card_preview_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="35dp"
+                    android:layout_marginTop="10dp"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/card_preview_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:gravity="top|center_horizontal"
+                    android:hint="XXXX XXXX XXXX XXXX"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_color"
+                    android:textColorHint="@color/text_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/cardicon"
+                    android:layout_width="89dp"
+                    android:layout_height="90dp"
+                    app:srcCompat="@drawable/card"
+                    android:layout_marginLeft="10dp"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".7"
+            android:background="@mipmap/bg">
+
+            <LinearLayout
+                android:id="@+id/payment_amount_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/payment_amount_holder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="  Card Name: "
+                    android:textColor="@color/text_color"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/noteDesc"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/payment_amount_layout"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/background_edit_btn"
+                android:lines="1"
+                android:maxLines="1"
+                android:textSize="18sp"
+                android:paddingLeft="15dp" />
+
+
+            <TextView
+                android:id="@+id/cardnum_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/noteDesc"
+                android:fontFamily="sans-serif"
+                android:text="  Card Number: "
+                android:textColor="@color/text_color"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/cardnum"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/cardnum_label"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/background_edit_btn"
+                android:lines="1"
+                android:maxLength="19"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/explabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardnum"
+                android:fontFamily="sans-serif"
+                android:text="  Expiry Date: "
+                android:textColor="@color/text_color"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/cvvlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/explabel"
+                android:layout_alignBottom="@id/explabel"
+                android:layout_marginLeft="170dp"
+                android:fontFamily="sans-serif"
+                android:text=" CVV : "
+                android:textColor="@color/text_color"
+                android:textSize="18sp"/>
+
+            <LinearLayout
+                android:id="@+id/expiry_date_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/explabel"
+                android:layout_marginTop="5dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/exp"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight=".50"
+                    android:background="@drawable/background_edit_btn"
+                    android:lines="1"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:paddingLeft="15dp"
+                    android:text="EXP"
+                    android:textSize="20sp"/>
+
+                <android.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".05" />
+
+                <TextView
+                    android:id="@+id/cvvv"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight=".45"
+                    android:background="@drawable/background_edit_btn"
+                    android:lines="1"
+                    android:maxLength="3"
+                    android:maxLines="1"
+                    android:paddingLeft="15dp"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

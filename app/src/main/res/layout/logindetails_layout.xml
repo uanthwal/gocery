@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/top_layout">
+
+            <ImageView
+                android:id="@+id/imgFavicon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_centerVertical="true"
+                android:transitionName="favicon_transition"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/imgFavicon"
+                android:layout_centerVertical="true">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:inputType="textMultiLine|textFilter|textNoSuggestions"
+                    android:theme="@style/TextInputLayoutStyle"
+                    app:boxStrokeColor="@color/colorBlack"
+                    app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtValueName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="10px"
+                        android:gravity="top"
+                        android:hint="Login"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@drawable/edit_text_selector"
+                        android:transitionName="login_name_transition" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtUsername"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/top_layout"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="textMultiLine|textFilter|textNoSuggestions"
+            android:theme="@style/TextInputLayoutStyle"
+            app:boxStrokeColor="@color/colorBlack"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtValueUsername"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/username"
+                android:drawablePadding="10px"
+                android:gravity="top"
+                android:hint="Name"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@drawable/edit_text_selector" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtUsername"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="textPassword"
+            android:theme="@style/TextInputLayoutStyle"
+            app:boxStrokeColor="@color/colorBlack"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtValuePassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableStart="@drawable/password"
+                android:drawablePadding="10px"
+                android:gravity="top"
+                android:hint="Password"
+                android:textColorHint="@drawable/edit_text_selector"
+                android:textColor="@color/colorBlack"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtWebsite"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text"
+            android:theme="@style/TextInputLayoutStyle"
+            app:boxStrokeColor="@color/colorBlack"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtValueWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/website"
+                android:drawablePadding="10px"
+                android:gravity="top"
+                android:hint="Website"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@drawable/edit_text_selector"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt2FAKey"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtWebsite"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text"
+            android:theme="@style/TextInputLayoutStyle"
+            app:boxStrokeColor="@color/colorBlack"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtValue2FAKey"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/key"
+                android:drawableRight="@drawable/qrcode_scan"
+                android:drawablePadding="10px"
+                android:gravity="top"
+                android:hint="2FA Key"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@drawable/edit_text_selector" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/layout2FA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt2FAKey"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
+
+
+            <TextView
+                android:id="@+id/txt2FACode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:text="2FA Key" />
+
+            <TextView
+                android:id="@+id/txt2FATimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_toRightOf="@id/txt2FACode"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:text="30" />
+
+
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUpdateCredentials"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_below="@id/layout2FA"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textSize="15dp"
+            android:layout_marginTop="20dp"
+            android:text="SAVE"/>
+
+        <TextView
+            android:id="@+id/txtPaswordGenerator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnUpdateCredentials"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:text="password generator" />
+
+        <RelativeLayout
+            android:id="@+id/layoutPasswordGenerator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtPaswordGenerator"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/txtLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:text="length" />
+
+            <SeekBar
+                android:id="@+id/seekPasswordLength"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:min="8"
+                android:max="30"
+                android:layout_toRightOf="@id/txtLength"
+                android:layout_toLeftOf="@+id/txtLengthValue"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/txtLengthValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_margin="5dp"
+                android:layout_toLeftOf="@id/btnGeneratePassword"
+                android:text="8" />
+
+
+            <ImageView
+                android:id="@+id/btnGeneratePassword"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/autorenew"
+                android:layout_alignParentEnd="true"/>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtGeneratedPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutPasswordGenerator"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:text="password"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/btnUsePassword"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_below="@id/txtGeneratedPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:background="@android:color/transparent"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15dp"
+            android:text="USE AS PASSWORD"/>
+
+
+    </RelativeLayout>
+</ScrollView>
