@@ -26,13 +26,13 @@
                 android:text="Registration"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/logo_imgvw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
                 android:layout_below="@+id/one_sec_txt"
                 android:layout_centerInParent="true"
                 app:srcCompat="@mipmap/app_icon_round" />
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout1"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="10dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txt_name"
@@ -58,7 +58,7 @@
                 android:inputType="textFilter|textNoSuggestions"
                 android:textColorHint="@color/ip_txt_hint_clr"
                 android:theme="@style/TextInputLayoutStyle"
-                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxBackgroundColor="@color/colorPrimaryLight"
                 app:boxStrokeColor="@color/white"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
@@ -87,7 +87,7 @@
                 android:inputType="number"
                 android:textColorHint="@color/ip_txt_hint_clr"
                 android:theme="@style/TextInputLayoutStyle"
-                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxBackgroundColor="@color/colorPrimaryLight"
                 app:boxStrokeColor="@color/white"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
@@ -117,17 +117,17 @@
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/ip_txt_hint_clr"
                 android:theme="@style/TextInputLayoutStyle"
-                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxBackgroundColor="@color/colorPrimaryLight"
                 app:boxStrokeColor="@color/white"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_txt_email"
+                    android:id="@+id/edit_txt_email1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:drawablePadding="8px"
                     android:gravity="top"
-                    android:hint="Occupation"
+                    android:hint="Full Address"
                     android:textColor="@color/white"
                     android:textColorHint="#D3D8D4" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -146,7 +146,7 @@
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/ip_txt_hint_clr"
                 android:theme="@style/TextInputLayoutStyle"
-                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxBackgroundColor="@color/colorPrimaryLight"
                 app:boxStrokeColor="@color/white"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
@@ -156,7 +156,7 @@
                     android:layout_height="match_parent"
                     android:drawablePadding="8px"
                     android:gravity="top"
-                    android:hint="Occupation"
+                    android:hint="Postal Code"
                     android:textColor="@color/white"
                     android:textColorHint="#D3D8D4" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -175,17 +175,17 @@
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/ip_txt_hint_clr"
                 android:theme="@style/TextInputLayoutStyle"
-                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxBackgroundColor="@color/colorPrimaryLight"
                 app:boxStrokeColor="@color/white"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_occupation"
+                    android:id="@+id/edit_txt_email"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:drawablePadding="8px"
                     android:gravity="top"
-                    android:hint="Profession"
+                    android:hint="Email"
                     android:textColor="@color/white"
                     android:textColorHint="#D3D8D4" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -204,7 +204,7 @@
                 android:layout_marginBottom="10dp"
                 android:textColorHint="@color/ip_txt_hint_clr"
                 android:theme="@style/TextInputLayoutStyle"
-                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxBackgroundColor="@color/colorPrimaryLight"
                 app:boxStrokeColor="@color/white"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
                 app:passwordToggleEnabled="true"
@@ -235,7 +235,7 @@
                 android:layout_marginBottom="10dp"
                 android:textColorHint="@color/ip_txt_hint_clr"
                 android:theme="@style/TextInputLayoutStyle"
-                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxBackgroundColor="@color/colorPrimaryLight"
                 app:boxStrokeColor="@color/white"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
                 app:passwordToggleEnabled="true"

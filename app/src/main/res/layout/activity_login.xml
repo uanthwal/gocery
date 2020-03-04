@@ -23,16 +23,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:padding="10dp"
-                android:text="Welcome to One-Sec"
+                android:text="Welcome to Go-Cery"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
-                android:textSize="17sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <ImageView
+                android:layout_marginTop="17dp"
                 android:id="@+id/logo_imgvw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
                 android:layout_below="@+id/one_sec_txt"
                 android:layout_centerInParent="true"
                 app:srcCompat="@mipmap/app_icon_round" />
@@ -43,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout1"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="30dp">
 
             <TextView
                 android:id="@+id/welcome_txt"
@@ -69,7 +70,7 @@
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/ip_txt_hint_clr"
                 android:theme="@style/TextInputLayoutStyle"
-                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxBackgroundColor="@color/colorPrimaryLight"
                 app:boxStrokeColor="@color/white"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
@@ -93,12 +94,12 @@
                 android:layout_below="@+id/txt_email"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="10dp"
                 android:textColorHint="@color/ip_txt_hint_clr"
                 android:theme="@style/TextInputLayoutStyle"
-                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxBackgroundColor="@color/colorPrimaryLight"
                 app:boxStrokeColor="@color/white"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
                 app:passwordToggleEnabled="true">
@@ -146,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/forgot_pass_txt"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:text="Don't have an account?"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"

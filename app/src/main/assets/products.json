@@ -30,13 +30,34 @@
 		"img": "ch_thighs.jpg",
 		"category": "Meats"
 	},
-
+	{
+		"id": "8",
+		"name": "Botan Calrose Rice",
+		"price": "$19.97",
+		"img": "rice.jpg",
+		"category": "Cereals"
+	},
 	{
 		"id": "5",
 		"name": "Mr.Christie Snak Paks Mini Oreo Milk Cookie",
 		"price": "$2",
 		"img": "oreo.jpg",
 		"category": "Snacks"
+	},
+	
+	{
+		"id": "6",
+		"name": "Farmers Partly Skimmed 1% Milk",
+		"price": "$5.19",
+		"img": "skimmed_milk_1.jpg",
+		"category": "Dairy"
+	},
+	{
+		"id": "7",
+		"name": "Farmers Homogenized 3.25% Milk",
+		"price": "$5.19",
+		"img": "skimmed_milk_3.jpg",
+		"category": "Dairy"
 	}
 ]
 }

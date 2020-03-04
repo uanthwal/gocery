@@ -1,94 +1,125 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="5dp">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/top_layout"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="13dp"
-            android:gravity="center_vertical"
-            android:text="Walmart"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-
-
-        <ImageView
-            android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_width="35dp"
-            android:layout_centerInParent="true"
-            android:layout_height="35dp"
-            android:src="@mipmap/cart_icon"
-            ></ImageView>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/search_layout"
-        android:layout_below="@+id/top_layout"
-        android:layout_width="match_parent"
-        android:layout_height="60dp">
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <RelativeLayout
+            android:id="@+id/top_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_mob_num"
-            android:layout_centerHorizontal="true"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary">
 
-            android:inputType="textEmailAddress"
-            android:textColorHint="@color/ip_txt_hint_clr"
-            android:theme="@style/TextInputLayoutStyle"
-            app:boxBackgroundColor="@color/colorPrimary"
-            app:boxStrokeColor="@color/white"
-            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_txt_email"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawablePadding="8px"
-                android:gravity="top"
-                android:hint="Email"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="13dp"
+                android:gravity="center_vertical"
+                android:text="Walmart"
                 android:textColor="@color/white"
-                android:textColorHint="#D3D8D4" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/cartIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/cart_icon"></ImageView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/top_layout">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_mob_num"
+                android:layout_centerHorizontal="true"
+
+                android:inputType="text"
+                android:textColorHint="@color/ip_txt_hint_clr"
+                android:theme="@style/TextInputLayoutStyle"
+
+                app:boxStrokeColor="@color/white"
+                app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawablePadding="8px"
+                    android:gravity="top"
+                    android:hint="Search"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="#D3D8D4" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-        <ImageButton
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/mic" />
+            <ImageButton
+                android:id="@+id/micBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp"
+                android:background="@mipmap/mic" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/albumListRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search_layout"
+            android:layout_centerHorizontal="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/albumListRecycler"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/addtoCartBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:backgroundTint="#f77f00"
+                android:text="Add to Cart"
+                android:textColor="@color/white"></Button>
+
+            <Button
+                android:id="@+id/checkoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:backgroundTint="#03c03c"
+                android:text="CHECKOUT"
+                android:textColor="@color/white"></Button>
+        </LinearLayout>
 
     </RelativeLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/albumListRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/search_layout"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:textColor="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:text="CHECKOUT"
-        android:backgroundTint="@color/colorAccent"></Button>
-
-</RelativeLayout>
+</ScrollView>

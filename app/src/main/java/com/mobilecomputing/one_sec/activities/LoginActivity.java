@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                         SpUtil.getInstance().putString("dob", loginInfo.getDob());
                         SpUtil.getInstance().putString("mob_num", loginInfo.getMobNum());
                         SpUtil.getInstance().putString("email", loginInfo.getEmail());
-                        Intent intent = new Intent(LoginActivity.this, FingerprintAuthentication.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                     } else {
                         onShakeImage();

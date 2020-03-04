@@ -62,6 +62,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$1.99"></TextView>
+
+            <ImageView
+                android:id="@+id/selectBtn"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@mipmap/empty"
+                android:layout_below="@+id/p_title_1"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                ></ImageView>
         </RelativeLayout>
 
     </RelativeLayout>

@@ -13,6 +13,7 @@ import android.transition.Explode;
 import android.transition.Slide;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,67 +40,30 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ViewCredentials extends AppCompatActivity implements Serializable {
+public class ViewCredentials extends AppCompatActivity {
 
     DatabaseHelper myDB;
 
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
     FloatingActionButton fab;
-
+    ImageView checkoutBtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.viewcontents_layout);
-        setTitle("Credentials");
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy =
-                    new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
-        fab = findViewById(R.id.fab);
-        myDB = new DatabaseHelper(this);
-        System.out.println("test0");
-        final ArrayList<String> list = new ArrayList<>();
-        final Cursor data = myDB.getListContents();
-        TextView noCredsLbl = findViewById(R.id.no_creds_lbl);
-        if (data.getCount() == 0) {
-            noCredsLbl.setVisibility(View.VISIBLE);
-        } else {
-            noCredsLbl.setVisibility(View.GONE);
-            while (data.moveToNext()) {
-                String name = data.getString(1);
-                System.out.println("name "+name);
-                String username = data.getString(2);
-                String password = data.getString(3);
-                String website = data.getString(4);
+        setContentView(R.layout.final_page_activity);
+        setTitle("Order Placed");
 
-                mNames.add(name);
-//                Favicon favicon = new Favicon();
-//                favicon.execute(website);
+        checkoutBtn = findViewById(R.id.imgBtnn);
 
-                String imageURL = getImageURL(website);
-                if (imageURL != "")
-                    mImageUrls.add(imageURL);
-                else
-                    System.out.println("Error retrieving image");
-
-
-            }
-            initRecyclerView(myDB);
-        }
-
-
-        fab.setOnClickListener(new View.OnClickListener() {
+        checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(ViewCredentials.this, AddCredential.class);
+                Intent intent = new Intent(ViewCredentials.this, LoginCredentialDetail.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//                finish();
             }
         });
+
     }
 
     @Override
@@ -116,52 +80,5 @@ public class ViewCredentials extends AppCompatActivity implements Serializable {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
-
-    private String getImageURL(String name) {
-
-//        return "https://"+name+"/favicon.ico";
-
-        try {
-            String url = "http://favicongrabber.com/api/grab/";
-            url += name;
-//            System.out.println(url);
-            URL faviconURL = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) faviconURL.openConnection();
-            con.setRequestMethod("GET");
-//            System.out.println("picasso test");
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
-            }
-            in.close();
-//            System.out.println(content);
-            JSONObject myResponse = new JSONObject(content.toString());
-            JSONObject image = ((JSONArray) myResponse.get("icons")).getJSONObject(0);
-            String imageURL = image.get("src").toString();
-            return imageURL;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-
-    private void initRecyclerView(DatabaseHelper myDB) {
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mNames, mImageUrls, this, myDB);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
-
 
 }
